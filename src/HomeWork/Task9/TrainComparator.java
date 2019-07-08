@@ -5,7 +5,7 @@ import java.util.Comparator;
 
 public class TrainComparator implements Comparator<Train> {
    enum TrainsCompareMethods {
-        BY_DIST,
+       BY_DEST,
         BY_NUMBER,
         BY_TIME
     }
@@ -25,7 +25,7 @@ public class TrainComparator implements Comparator<Train> {
                     return numberDiff;
                 }
                 break;
-            case BY_DIST:
+            case BY_DEST:
                 int destDiff = o1.getDestination().compareTo(o2.getDestination());
                 if (destDiff != 0) {
                     return destDiff;

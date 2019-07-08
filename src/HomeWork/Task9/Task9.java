@@ -45,7 +45,7 @@ public class Task9 {
      * @param comparator
      */
     private static void sortTrainDest(Train[] trains, TrainComparator comparator) {
-        comparator.setTrainsCompareMethods(TrainComparator.TrainsCompareMethods.BY_DIST);
+        comparator.setTrainsCompareMethods(TrainComparator.TrainsCompareMethods.BY_DEST);
         Arrays.sort(trains, comparator);
         Train tempStud;
         boolean isChanged = false;
