@@ -25,8 +25,8 @@ public class Task9 {
             System.out.println(train.toString());
         }
 
-//        printTrainForUser(trains);
-//        System.out.println();
+        printTrainForUser(trains);
+        System.out.println();
 
         sortTrainDest(trains, comparator);
         System.out.println("Поезда по городу отправления");
