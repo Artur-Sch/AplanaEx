@@ -14,7 +14,7 @@ import java.util.*;
 
 public class Task9 {
     public static void main(String[] args) {
-        Train[] trains = init();
+        Train[] trains = initRandom();
 
         TrainComparator comparator = new TrainComparator();
         comparator.setTrainsCompareMethods(TrainComparator.TrainsCompareMethods.BY_NUMBER);
@@ -25,8 +25,8 @@ public class Task9 {
             System.out.println(train.toString());
         }
 
-        printTrainForUser(trains);
-        System.out.println();
+//        printTrainForUser(trains);
+//        System.out.println();
 
         sortTrainDest(trains, comparator);
         System.out.println("Поезда по городу отправления");
@@ -99,6 +99,17 @@ public class Task9 {
         return trains;
     }
 
+    private static Train[] initRandom() {
+        Random random = new Random();
+        int tr = (int) (Math.random()*15)+1;
+        Train[] trains = new Train[tr];
+        String[] citys = {"Москва", "Берлин", "Хабаровск", "Мурманск", "Новосибирск", "Караганда", "Ташкент"};
+        for (int i = 0; i < trains.length; i++) {
+            trains[i] = new Train(citys[random.nextInt(7)], (int) (Math.random() * 100), randomTime());
+        }
+        return trains;
+    }
+
 
     /**
      * Рандомное время отправления, с датой 08.07.2019
@@ -109,7 +120,7 @@ public class Task9 {
         Random random = new Random();
         Calendar calendar = Calendar.getInstance();
         calendar.setTimeZone(TimeZone.getTimeZone("UTC"));
-        calendar.set(2019, Calendar.JULY, 8, random.nextInt(11) + 1, random.nextInt(59) + 1, 0);
+        calendar.set(2019, Calendar.JULY, 8, random.nextInt(24), random.nextInt(60), 0);
         return calendar;
     }
 
